@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gemma3-cls"
+version = "0.1.0"
+description = "vLLM plugin serving Gemma 3 as an image + text classifier (Gemma3ForSequenceClassification)"
+requires-python = ">=3.10"
+
+[project.entry-points."vllm.general_plugins"]
+gemma3_cls = "gemma3_cls:register"
+
+[tool.setuptools]
+packages = ["gemma3_cls"]
