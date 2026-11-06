@@ -1,3 +1,6 @@
+# Copyright 2026 NVIDIA Corporation
+# SPDX-License-Identifier: Apache-2.0
+
 # The official vLLM 0.32.0 image plus the gemma3_cls plugin here.
 # docker build -t gemma3-cls-vllm:0.32.0 serve
 FROM vllm/vllm-openai:v0.32.0

@@ -1,3 +1,8 @@
+<!--
+Copyright 2026 NVIDIA Corporation
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # wmt-gemma3-4b-classification
 
 ## One Time Setup

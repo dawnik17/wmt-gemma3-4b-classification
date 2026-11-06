@@ -6,4 +6,7 @@
 def register():
     from vllm import ModelRegistry
 
-    ModelRegistry.register_model("Gemma3ForSequenceClassification", "gemma3_cls.model:Gemma3ForSequenceClassification")
+    ModelRegistry.register_model(
+        "Gemma3ForSequenceClassification",
+        "gemma3_cls.model:Gemma3ForSequenceClassification",
+    )

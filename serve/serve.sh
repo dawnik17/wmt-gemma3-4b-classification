@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Copyright 2026 NVIDIA Corporation
+# SPDX-License-Identifier: Apache-2.0
+
 #   GPU_IDS=0 serve/serve.sh
 #   GPU_IDS=1 PORT=8001 MODEL=<checkpoint dir> serve/serve.sh --max-num-seqs 64           
 #   docker logs -f gemma3-cls                                follow the server's log
