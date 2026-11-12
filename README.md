@@ -55,3 +55,23 @@ PORT=8100 GPU_IDS=0 serve/serve.sh --attention-backend CUSTOM --api-server-count
 
 CONCURRENCY="1 8 16" URL=http://127.0.0.1:8100 GPU_IDS=0 perf/aiperf/bench.sh runs/perf/h200-fa
 ```
+
+## Results
+
+One H200, prefix caching and the multimodal cache disabled, `runs/perf/payloads/cls-2k.jsonl`: 1,978 input tokens per request at p50 (1,947-2,000) including the image, as the server reports them. AIPerf's Input Sequence Length (1,710 at p50) counts the text tokens only.
+
+Throughput (requests/sec):
+
+| Configuration | Concurrency 1 | Concurrency 8 | Concurrency 16 | vs. stock at 16 |
+|---|---|---|---|---|
+| Stock vLLM, bf16 | 9.71 | 19.37 | 19.58 | baseline |
+| Optimized kernels, bf16 | 12.11 | 27.19 | 27.22 | +39% |
+| Optimized kernels + W8A8 FP8 | 12.49 | 32.49 | 33.11 | +69% |
+
+Request latency (ms):
+
+| Configuration | p50 at 1 | p50 at 16 | p99 at 16 |
+|---|---|---|---|
+| Stock vLLM, bf16 | 100.6 | 818.0 | 995.4 |
+| Optimized kernels, bf16 | 80.3 | 596.5 | 688.2 |
+| Optimized kernels + W8A8 FP8 | 77.7 | 482.8 | 583.5 |
